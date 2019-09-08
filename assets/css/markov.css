@@ -1,0 +1,97 @@
+
+#pagewrapper {
+  display: grid;
+  width: 90%;
+  padding: 0 auto 0 auto;
+  margin: 0 auto 0 auto;
+  grid-template-areas: "header header header"
+                       "bookSelection bookSelection bookSelection"
+                       "bookSelection bookSelection bookSelection"
+                       "submitSelection submitSelection submitSelection"
+                       "outputs outputs outputs"
+                       "outputs outputs outputs"
+                       "footer footer footer";
+
+  /* grid-template-rows: 50px 1fr 30px; */
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#header {
+  grid-area: header;
+}
+
+#bookSelection {
+  grid-area: bookSelection;
+}
+
+#submitSelection {
+  grid-area: submitSelection;
+}
+
+#outputs {
+  grid-area: outputs;
+}
+
+#footer {
+  grid-area: footer;
+}
+
+.noshow {
+  display: none;
+}
+
+.bookchoice {
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 3px;
+  height: 16.66%;
+}
+
+.unselected {
+  background-color: #001D03;
+}
+
+.selected {
+  background-color: #028D10;
+}
+
+.inputenabled {
+  background-color: #1507D4;
+  color: whitesmoke;
+}
+
+.inputdisabled {
+  background-color: #09035F;
+  color: whitesmoke;
+}
+
+.mkv {
+  border: 1px solid paleturquoise;
+  border-radius: 5px;
+  display: inline-block;
+  width: 70%;
+}
+
+.tweetImg {
+  display: inline-block;
+}
+
+body {
+  text-align: center;
+}
+
+div {
+  text-align: center;
+}
+
+a {
+  color: lightblue;
+  text-decoration: none;
+}
+
+input {
+  width: 100%;
+  height: 3em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}

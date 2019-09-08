@@ -1,0 +1,65 @@
+p {
+  color: whitesmoke;
+  text-align: center;
+}
+
+h2 {
+  color: whitesmoke;
+  text-align: center;
+}
+
+form {
+  color: whitesmoke;
+  text-align: center;
+}
+
+body {
+  background: black;
+}
+
+.logoimg {
+  height: 10%;
+  max-height: 150px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.choiceContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.selectContainer {
+  border: 5px solid whitesmoke;
+  border-radius: 10px;
+}
+
+i.whitened {
+  color: whitesmoke;
+}
+
+.mainLink {
+  border: 2px solid whitesmoke;
+  border-radius: 2px;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: table-cell;
+  width: 50%;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  text-align: center;
+  display: table;
+  border-spacing: 3px;
+}
+
+.unButton {
+  text-decoration: none;
+  color: whitesmoke;
+}

@@ -1,0 +1,98 @@
+/* CSS Grid page layout */
+.wrapper {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 10vw 80vw 10vw;
+  grid-template-rows: 5vh 5vh 80vh 9vh;
+  grid-template-areas:
+    "logoAndCompany logoAndCompany logoAndCompany"
+    ". inspheader ."
+    ". inspitems ."
+    ". flowcontrol .";
+}
+#logoAndCompany {
+  grid-area: logoAndCompany;
+}
+#inspheader {
+  grid-area: inspheader;
+}
+#inspitems {
+  grid-area: inspitems;
+}
+#flowcontrol {
+  grid-area: flowcontrol;
+}
+/* end CSS Grid layouts */
+
+
+body {
+  margin: -1rem auto 0 auto;
+  padding: 0;
+  background-color: gainsboro;
+}
+#inspectitemshead {
+  text-align: center;
+  padding: 0;
+  margin: 0.2rem 0 .5rem 0;;
+}
+#equipinspect {
+  text-decoration: none;
+  padding: .5rem 0 .5rem 0;
+}
+.sectlabel {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.ltype {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+.fcbutton {
+  padding: 5% 0 5% 0;
+  width: 48%;
+  border-radius: 5px;
+}
+.rcbutton {
+  padding: 5% 0 5% 0;
+  width: 48%;
+  border-radius: 5px;
+  background-color: red;
+}
+#flowcontrol button {
+  display: inline-block;
+}
+.lunselect {
+  background-color: gray;
+  border-color: darkgrey;
+}
+/*
+.lunselect:hover {
+  background-color: green;
+}
+*/
+.lselect {
+  background-color: green;
+  border-color: darkgreen;
+}
+/*
+.lselect:hover {
+  background-color: lightgreen;
+}
+*/
+.selsect {
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+.contbutton {
+  margin: 0 0 .25rem 0;;
+  padding: .6rem 0 .6rem 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+}

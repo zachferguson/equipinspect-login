@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equipment Inspection">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+
+  <title>EquipInspect Login</title>
+</head>
+
+<body>
+  <div>
+    <img class="logoimg" src="assets/img/equipinspect-logo.png" alt="EquipInspect">
+    <p>Please select your login type:</p>
+    <div id="loginContainer">
+      <div id="inspectorLog" class="logTypeContainer choiceButtonSelected"><p>Inspect</p></div>
+      <div id="adminLog" class="logTypeContainer choiceButtonUnselected"><p>Admin</p></div>
+      <div id="ownerLog" class="logTypeContainer choiceButtonUnselected"><p>Equip</p></div>
+    </div>
+    <h3 id="loginExplanation">Equipment Inspector Login</h3>
+    <p id="loginDescription">* log in to inspect equipment.</p>
+    <form id="loginInfoForm" method='POST' action="/index">
+      User Name: <br> <input id='un' type='text' name='username'>
+      <br>
+      <br>
+      Password: <br> <input id='pw' type='password' name='password'>
+      <br>
+      <br>
+      <input id="loginType" style="display:none;" name="loginType" value='inspector'>
+      <input id="submitbtn" type='submit' value='Submit'>
+    </form>
+    <p id="loginMessage"></p>
+  </div>
+  <p>* You must create a company account to assign inspectors.</p>
+  <div class='buttonContainer'>
+    <div class='mainLink choiceButtonUnselected' id='createAccountLink'><a href='companysignup' class='unButton'>Create a Company Account</a></div>
+    <div  class='mainLink choiceButtonUnselected' id='examplesLink'><a href='#' class='unButton'>Example Inspection</a></div>
+  </div>
+
+  <script>
+      function resetButtons () {
+        document.getElementById("inspectorLog").classList.remove('choiceButtonSelected');
+        document.getElementById("adminLog").classList.remove('choiceButtonSelected');
+        document.getElementById("ownerLog").classList.remove('choiceButtonSelected');
+        document.getElementById("inspectorLog").classList.add('choiceButtonUnselected');
+        document.getElementById("adminLog").classList.add('choiceButtonUnselected');
+        document.getElementById("ownerLog").classList.add('choiceButtonUnselected');
+      }
+      function buttonChosen (elementID, val, message, explanation) {
+        document.getElementById("loginType").value = val;
+        document.getElementById(elementID).classList.add('choiceButtonSelected');
+        document.getElementById(elementID).classList.remove('choiceButtonUnselected');
+        document.getElementById("loginDescription").innerHTML = message;
+        document.getElementById("loginExplanation").innerHTML = explanation;
+      }
+      document.getElementById("inspectorLog").addEventListener("click", function() {
+        resetButtons();
+        buttonChosen('inspectorLog', 'inspector', '* log in to inspect equipment.', 'Equipment Inspector Login');
+      });
+      document.getElementById("adminLog").addEventListener("click", function() {
+        resetButtons();
+        buttonChosen('adminLog', 'administrator', '* log in for inspection company administration.', 'Inspection Company Login');
+      });
+      document.getElementById("ownerLog").addEventListener("click", function() {
+        resetButtons();
+        buttonChosen('ownerLog', 'equipment', '* log in to reveiw your equipment status.', 'Equipment Owner Login');
+      });
+  </script>
+  <script>
+    // on click of Submit, loads username and password into session storage
+    document.getElementById("submitbtn").addEventListener("click", function() {
+      sessionStorage.setItem('user', document.getElementById('un').value);
+      sessionStorage.setItem('passw', document.getElementById('pw').value);
+    });
+  </script>
+</body>
+</html>

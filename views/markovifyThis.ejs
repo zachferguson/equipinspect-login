@@ -1,0 +1,151 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equipment Inspection">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/markov.css">
+
+  <title>Markovify This!</title>
+
+
+
+  <style>
+  body {
+    background-color: black;
+    color: whitesmoke;
+  }
+    input {
+      border-style: none;
+      border-bottom: 1px solid dimgrey;
+    }
+
+    .primarycontainer {
+      width: 90%;
+      margin: 0 auto 0 auto;
+      text-align: center;
+    }
+    .subsection {
+      border-bottom: solid 1px darkgrey;
+      border-radius: 5px;
+      padding-bottom: 1em;
+    }
+    .complete {
+      background-color: green;
+      opacity: 0.4;
+      color: white;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="pagewrapper">
+    <div id="header">
+      <h2>Markovify This!</h2>
+      <p>Click one or more of the texts below, then click 'Generate'.</p>
+      <p style="display:none;">You'll get 5 tweetable (140 character) length sentences. They
+      weren't written by the author, but they sound like they could
+      have been!</p>
+    </div>
+    <!-- <a href=”http://twitter.com/home?status=Put your message here and include your username ala @marketingV2 ”>Tweet this</a> -->
+
+      <div id="bookSelection">
+        <div id="fifty" class="selected bookchoice">
+          <p>Fifty Shades of Gray</p>
+        </div>
+        <div id="harry" class="unselected bookchoice">
+          <p>Harry Potter and the Sorcerer's Stone</p>
+        </div>
+        <div id="hamlet" class="unselected bookchoice">
+          <p>Hamlet</p>
+        </div>
+        <div id="oldtestament" class="unselected bookchoice">
+          <p>The Old Testament</p>
+        </div>
+        <div id="rnj" class="unselected bookchoice">
+          <p>Romeo and Juliet</p>
+        </div>
+        <div id="sherlock" class="unselected bookchoice">
+          <p>The Adventures of Sherlock Holmes</p>
+        </div>
+      </div>
+
+      <div id="submitSelection">
+        <form id="bookSelector" method="POST" action="/markovifyThis">
+          <input id="boxfifty" class="noshow" type="checkbox" name="fiftyshades" checked value="Fifty-Shades-of-Gray">
+          <input id="boxharry" class="noshow" type="checkbox" name="sorcerersstone" value="Harry-Potter-and-the-Sorcers-Stone">
+          <input id="boxhamlet" class="noshow" type="checkbox" name="hamlet" value="hamlet">
+          <input id="boxold" class="noshow" type="checkbox" name="oldtestament" value="Old-Testament">
+          <input id="boxrnj" class="noshow" type="checkbox" name="romeoandjuliet" value="RomeoAndJuliet">
+          <input id="boxsherlock" class="noshow" type="checkbox" name="sherlock" value="adventuresofsherlockholmes">
+          <input id="submitbtn" class="inputdisabled" type="submit" value="Generate"/>
+        </form>
+      </div>
+
+      <div id="outputs">
+        <p class="mkv"> <%= message.tweeta %> </p>
+        <p class="mkv"> <%= message.tweetb %> </p>
+        <p class="mkv"> <%= message.tweetc %> </p>
+        <p class="mkv"> <%= message.tweetd %> </p>
+        <p class="mkv"> <%= message.tweete %> </p>
+      </div>
+
+      <div id="footer" style="display:none;">
+        <p>Inspired by <a href="https://inspirobot.me/">Inspirobot</a>,
+          <a href="https://github.com/jsvine/markovify">jsvine</a>, and
+          <a href="https://stackoverflow.com/questions/23450534/how-to-call-a-python-function-from-node-js/50627157">NeverForgetY2K</a>
+        A Markov Chain is a sentence (in this case) created by taking
+        a book, and creating a weighted
+        analysis of words and their neighbors, to generate new
+        sentences that sound similar to ones previously created by
+        the original author. This whimsical use aside, Markov
+        Chains are one way computers are getting better at talking
+        to us.</p>
+      </div>
+
+  </div>
+  <script>
+    let elementList = ["fifty", "harry", "hamlet", "oldtestament", "rnj", "sherlock"];
+    let postList = ["boxfifty", "boxharry", "boxhamlet", "boxold", "boxrnj", "boxsherlock"];
+    function restrictButtons (chosenOne,postOne) {
+      for (let i = 0; i < elementList.length; i++) {
+        document.getElementById(elementList[i]).classList.remove('selected');
+        document.getElementById(elementList[i]).classList.add('unselected');
+        document.getElementById(postList[i]).checked = false;
+        }
+      document.getElementById(chosenOne).classList.remove('unselected');
+      document.getElementById(chosenOne).classList.add('selected');
+      document.getElementById(postOne).checked = true;
+
+    }
+
+    document.getElementById('fifty').addEventListener('click', function() {
+      restrictButtons('fifty', 'boxfifty');
+    });
+
+    document.getElementById('harry').addEventListener('click', function() {
+      restrictButtons('harry', 'boxharry');
+    });
+
+    document.getElementById('hamlet').addEventListener('click', function() {
+      restrictButtons('hamlet', 'boxhamlet');
+    });
+
+    document.getElementById('oldtestament').addEventListener('click', function() {
+      restrictButtons('oldtestament', 'boxold');
+    });
+
+    document.getElementById('rnj').addEventListener('click', function() {
+      restrictButtons('rnj', 'boxrnj');
+    });
+
+    document.getElementById('sherlock').addEventListener('click', function() {
+      restrictButtons('sherlock', 'boxsherlock');
+    });
+
+  </script>
+</body>
+</html>

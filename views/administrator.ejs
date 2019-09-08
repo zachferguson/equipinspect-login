@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equipment Inspection">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+
+  <title>EquipInspect Login</title>
+</head>
+
+<body>
+  <h1><a href="/">EquipInspect</a></h1>
+  <hr>
+  <h2> <%= output.company %> </h2>
+  <h3> <%= output.userName %> </h3>
+  <div id="optionsContainer">
+
+    <div id="newInspector" class="choiceButtonUnselected verticalNavElement"><p>Create a New Inspector</p></div>
+    <br>
+    <div id="newCustomer" class="choiceButtonUnselected verticalNavElement"><p>Create a New Customer</p></div>
+    <br>
+    <div id="incompleteInspections" class="choiceButtonUnselected verticalNavElement"><p>Incomplete Inspections</p></div>
+    <br>
+    <div id="browseInspectors" class="choiceButtonUnselected verticalNavElement"><p>Browse Inspectors</p></div>
+    <br>
+    <div id="browseInspections" class="choiceButtonUnselected verticalNavElement"><p>Browse Inspections</p></div>
+    <br>
+    <div id="browseCustomers" class="choiceButtonUnselected verticalNavElement"><p>Browse Customers</p></div>
+    <br>
+  </div>
+
+  <div id="inspectorInformation">
+
+  </div>
+  <script>
+  document.getElementById("newInspector").addEventListener("click", function() {
+    window.location = 'createnewinspector';
+  });
+  /*
+      function resetButtons () {
+        document.getElementById("inspectorLog").classList.remove('choiceButtonSelected');
+        document.getElementById("adminLog").classList.remove('choiceButtonSelected');
+        document.getElementById("ownerLog").classList.remove('choiceButtonSelected');
+        document.getElementById("inspectorLog").classList.add('choiceButtonUnselected');
+        document.getElementById("adminLog").classList.add('choiceButtonUnselected');
+        document.getElementById("ownerLog").classList.add('choiceButtonUnselected');
+      }
+      function buttonChosen (elementID, val, message, explanation) {
+        document.getElementById("loginType").value = val;
+        document.getElementById(elementID).classList.add('choiceButtonSelected');
+        document.getElementById(elementID).classList.remove('choiceButtonUnselected');
+        document.getElementById("loginDescription").innerHTML = message;
+        document.getElementById("loginExplanation").innerHTML = explanation;
+      }
+      document.getElementById("inspectorLog").addEventListener("click", function() {
+        resetButtons();
+        buttonChosen('inspectorLog', 'inspector', '* log in to inspect equipment.', 'Equipment Inspector Login');
+      });
+      document.getElementById("adminLog").addEventListener("click", function() {
+        resetButtons();
+        buttonChosen('adminLog', 'administrator', '* log in for inspection company administration.', 'Inspection Company Login');
+      });
+      document.getElementById("ownerLog").addEventListener("click", function() {
+        resetButtons();
+        buttonChosen('ownerLog', 'equipment', '* log in to reveiw your equipment status.', 'Equipment Owner Login');
+      });
+      */
+  </script>
+</body>
+</html>

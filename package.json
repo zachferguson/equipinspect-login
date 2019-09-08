@@ -1,0 +1,23 @@
+{
+  "name": "nodeprac-master",
+  "version": "1.0.0",
+  "description": "test app",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "client-sessions": "^0.8.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blah"
+  ],
+  "author": "zach",
+  "license": "ISC"
+}

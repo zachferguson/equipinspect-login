@@ -1,0 +1,115 @@
+p {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  color: whitesmoke;
+  text-align: center;
+}
+a {
+  color: royalblue;
+}
+
+form {
+  color: whitesmoke;
+  text-align: center;
+}
+
+body {
+  background: black;
+  color: whitesmoke;
+}
+
+.logoimg {
+  height: 10%;
+  max-height: 150px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.choiceContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.selectContainer {
+  border: 5px solid whitesmoke;
+  border-radius: 10px;
+}
+
+i.whitened {
+  color: whitesmoke;
+}
+
+.mainLink {
+  padding-left: 1em;
+  padding-right: 1em;
+  display: table-cell;
+  width: 50%;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  text-align: center;
+  display: table;
+  border-spacing: 3px;
+}
+
+.unButton {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+#loginContainer {
+  width: 90%;
+  margin: 0 auto 0 auto;
+  padding: auto;
+}
+
+.logTypeContainer {
+  display: inline-block;
+  width: 30%;
+  cursor: pointer;
+}
+
+.optionsContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.verticalNavElement {
+  width: 80%;
+  margin: 0 auto 0 auto;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.choiceButtonSelected {
+  background-color: darkgreen;
+  border: 2px solid dimgrey;
+  border-radius: 5px;
+}
+
+.choiceButtonUnselected {
+  background-color: rgb(29,29,29);
+  border-bottom: 2px solid dimgrey;
+  border-radius: 5px;
+}
+
+#loginMessage {
+  color: red;
+}

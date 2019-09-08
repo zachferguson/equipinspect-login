@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <h1>blabbity blah</h1>
+  <p>this is: <%= person %></p>
+  <p>he is <%= tempObj.age %>, and he is a <%= tempObj.job %></p>
+  <p>more blah</p>
+  <h2>Hobbies</h2>
+  <ul>
+    <% tempObj.hobbies.forEach(function(item) { %>
+      <li><%= item %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>

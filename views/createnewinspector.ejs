@@ -1,0 +1,269 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equipment Inspection">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+
+  <title>Create a New Inspector</title>
+
+
+
+  <style>
+  body {
+    background-color: black;
+    color: whitesmoke;
+  }
+    input {
+      border-style: none;
+      border-bottom: 1px solid dimgrey;
+    }
+
+    .primarycontainer {
+      width: 90%;
+      margin: 0 auto 0 auto;
+      text-align: center;
+    }
+    .subsection {
+      border-bottom: solid 1px darkgrey;
+      border-radius: 5px;
+      padding-bottom: 1em;
+    }
+    .complete {
+      background-color: green;
+      opacity: 0.4;
+      color: white;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class='primarycontainer'>
+    <h2> <%= output.company %> </h2>
+    <p> <%= output.userName %> </p>
+    <h3>Please enter your inspector's information below.</h3>
+    <p style="font-size:.75em">* The inforamtion below will be displayed on inspection forms.</p>
+    <form id="create-inspector" method="POST" action="/createnewinspector">
+      <div id="inspectorData" class='subsection incomplete'>
+        <h3>Inspector Information</h3>
+        <label for="firstName">First Name </label>
+        <input id="inputFirstName" type="text" name="firstName" required>
+        <p></p>
+        <label for="lastName">Last Name </label>
+        <input id="inputLastName" type="text" name="lastName" required>
+        <p></p>
+        <label for="email">E-Mail:</label>
+        <input id="inputEmail" type="email" name="email" required>
+        <p></p>
+        <label>Verify E-Mail:</label>
+        <input id="inputVerifyEmail" type="email" name="verifyEmail" required>
+        <p></p>
+        <p style="font-size:.75em">* If your inspector has an ALI inspector ID, please enter it here:</p>
+        <label for="inspectorID">Inspec </label>
+        <input id="inputInspectorID" type="text" name="inspectorID" required>
+        <p></p>
+      </div>
+      <div id="loginData" class='subsection incomplete'>
+        <h3>Login Information</h3>
+        <p style="font-size:.75em">Assign your inspector a username and password</p>
+        <label for="userName">Username </label>
+        <input id="inputUserName" type="text" name="userName" placeholder="User Name" required>
+        <p></p>
+        <label for="password">Password </label>
+        <input id="inputPassword" type="password" name="password" required>
+        <p></p>
+        <label>Verify Password </label>
+        <input id="inputVerifyPassword" type="password" name="verifyPassword" required>
+      </div>
+      <p></p>
+      <input id="submitbtn" type="submit" disabled value="Submit"/>
+    </form>
+  </div>
+  <script>
+    let companyDataValidatorList = [false, false, false];
+    let administratorDataValidatorList = [false, false, false, false];
+    let addressDataValidatorList = [false, false, false, false];
+    let loginDataValidatorList = [false, false, false];
+
+    function enabler () {
+      // called by each section completed check
+      // check the form validation lists, and enable submit button if all are complete, else disable.
+      if (companyDataValidatorList.includes(false) || administratorDataValidatorList.includes(false) || addressDataValidatorList.includes(false) || loginDataValidatorList.includes(false)) {
+        document.getElementById("submitbtn").disabled = true;
+      }
+      else {
+        // disable submit button if something that was complete has changed
+        document.getElementById("submitbtn").disabled = false;
+      }
+    }
+    function completer (sectionID, list) {
+      // called by each validator; changes class of section to reflect completed status
+      if (!list.includes(false)) {
+        document.getElementById(sectionID).classList.add('complete');
+        /*
+        console.log('updating ' + sectionID + ' to complete');
+        console.log(list);
+        console.log(" ");
+        */
+        enabler();
+      }
+      else {
+        document.getElementById(sectionID).classList.remove('complete');
+        /*
+        console.log('updating ' + sectionID + ' to incomplete');
+        console.log(list);
+        console.log(" ");
+        */
+      }
+
+    }
+    document.getElementById("inputCompanyName").addEventListener("input", function() {
+      // checks on input and changes the list value if the field is not empty
+      if (document.getElementById("inputCompanyName").value != null) {
+        companyDataValidatorList[0] = true;
+      }
+      else {
+        companyDataValidatorList[0] = false;
+      }
+      completer("companyData", companyDataValidatorList);
+    });
+    document.getElementById("inputAreaCode").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the right number of digits
+      if (document.getElementById("inputAreaCode").value.length == 3 &&  Number(document.getElementById("inputAreaCode").value) != NaN) {
+        companyDataValidatorList[1] = true;
+      }
+      else {
+        companyDataValidatorList[1] = false;
+      }
+      completer("companyData", companyDataValidatorList);
+    });
+    document.getElementById("inputPhone").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputPhone").value.length == 7 && Number(document.getElementById("inputCompanyName").value) != NaN) {
+        companyDataValidatorList[2] = true;
+      }
+      else {
+        companyDataValidatorList[2] = false;
+      }
+      completer("companyData", companyDataValidatorList);
+    });
+
+    document.getElementById("inputFirstName").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputFirstName").value != null) {
+        administratorDataValidatorList[0] = true;
+      }
+      else {
+        administratorDataValidatorList[0] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+    document.getElementById("inputLastName").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputLastName").value != null) {
+        administratorDataValidatorList[1] = true;
+      }
+      else {
+        administratorDataValidatorList[1] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+    document.getElementById("inputEmail").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputEmail").value != null) {
+        administratorDataValidatorList[2] = true;
+      }
+      else {
+        administratorDataValidatorList[2] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+    document.getElementById("inputVerifyEmail").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputEmail").value.length > 0 && document.getElementById("inputEmail").value == document.getElementById("inputVerifyEmail").value) {
+        administratorDataValidatorList[3] = true;
+      }
+      else {
+        administratorDataValidatorList[3] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+
+    document.getElementById("inputAddress").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputAddress").value != null) {
+        addressDataValidatorList[0] = true;
+      }
+      else {
+        addressDataValidatorList[0] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+    document.getElementById("inputCity").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputCity").value != null) {
+        addressDataValidatorList[1] = true;
+      }
+      else {
+        addressDataValidatorList[1] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+    document.getElementById("inputAddress").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputAddress").value != null) {
+        addressDataValidatorList[2] = true;
+      }
+      else {
+        addressDataValidatorList[2] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+    document.getElementById("inputZip").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputZip").value.length == 5 &&  Number(document.getElementById("inputZip").value) != NaN) {
+        addressDataValidatorList[3] = true;
+      }
+      else {
+        addressDataValidatorList[3] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+
+    document.getElementById("inputUserName").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputUserName").value.length > 5 ) {
+        loginDataValidatorList[0] = true;
+      }
+      else {
+        loginDataValidatorList[0] = false;
+      }
+      completer("loginData", loginDataValidatorList);
+    });
+    document.getElementById("inputPassword").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputPassword").value.length > 8 ) {
+        loginDataValidatorList[1] = true;
+      }
+      else {
+        loginDataValidatorList[1] = false;
+      }
+      completer("loginData", loginDataValidatorList);
+    });
+    document.getElementById("inputVerifyPassword").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputVerifyPassword").value.length > 8 &&  document.getElementById("inputPassword").value == document.getElementById("inputVerifyPassword").value) {
+        loginDataValidatorList[2] = true;
+      }
+      else {
+        loginDataValidatorList[2] = false;
+      }
+      completer("loginData", loginDataValidatorList);
+    });
+  </script>
+</body>
+</html>

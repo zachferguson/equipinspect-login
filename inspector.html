@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equipment Inspection">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+
+  <title>EquipInspect Login</title>
+</head>
+
+<body>
+  <h2><%= person %></h2>
+  <div id="optionsContainer">
+    <div id="newInspection">Inspect a New Lift</div>
+    <div id="newInspection">Create a New Customer</div>
+    <div id="newInspection">Incomplete Inspections</div>
+    <div id="newInspection">Browse Previous Inspections</div>
+    <div id="newInspection">Browse Customers</div>
+  </div>
+  <!--    EJS EXAMPLE
+  <h1>blabbity blah</h1>
+  <p>this is: <%= person %></p>
+  <p>he is <%= tempObj.age %>, and he is a <%= tempObj.job %></p>
+  <p>more blah</p>
+  <h2>Hobbies</h2>
+  <ul>
+    <% tempObj.hobbies.forEach(function(item) { %>
+      <li><%= item %></li>
+    <% }) %>
+  </ul>
+  -->
+  <div id="inspectorInformation">
+
+  </div>
+<script>
+    // on click of Submit, loads username and password into session storage
+    document.getElementById("submitbtn").addEventListener("click", function() {
+      sessionStorage.setItem('user', document.getElementById('un').value);
+      sessionStorage.setItem('passw', document.getElementById('pw').value);
+    });
+  </script>
+</body>
+</html>

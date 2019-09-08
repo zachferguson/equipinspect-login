@@ -1,0 +1,353 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equipment Inspection">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+
+  <title>EquipInspect Login</title>
+
+
+
+  <style>
+  body {
+    background-color: black;
+    color: whitesmoke;
+  }
+    input {
+      border-style: none;
+      border-bottom: 1px solid dimgrey;
+    }
+
+    .primarycontainer {
+      width: 90%;
+      margin: 0 auto 0 auto;
+      text-align: center;
+    }
+    .subsection {
+      border-bottom: solid 1px darkgrey;
+      border-radius: 5px;
+      padding-bottom: 1em;
+    }
+    .complete {
+      background-color: green;
+      opacity: 0.4;
+      color: white;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class='primarycontainer'>
+    <img class="logoimg" src="assets/img/equipinspect-logo.png" alt="EquipInspect">
+    <h2 class='header'>Company Registration.</h2>
+
+    <p>Please enter your company information:</p>
+    <p style="font-size:.75em">* This is how your information will display on inspection printouts.</p>
+    <form id="create-company" method="POST" action="/companysignup">
+      <div id="companyData" class='subsection incomplete'>
+        <h3>Company</h3>
+        <div>
+          <label for="companyName">Company Name:</label>
+          <input id="inputCompanyName" type="text" name="companyName" placeholder="My Company Name" required>
+          <p></p>
+          <div>
+            <label for="companyPhone">Phone Number (</label>
+            <input id="inputAreaCode" type="text" name="companyAreaCode" placeholder="555" style='width:3em' required> ) <input id="inputPhone" type="text" name="companyPhone" placeholder="1234567" style='width:7em' required>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div id="administratorData" class='subsection incomplete'>
+        <h3>Administrator</h3>
+        <label for="companyFirstName">First Name </label>
+        <input id="inputFirstName" type="text" name="companyFirstName" required>
+        <p></p>
+        <label for="companyLastName">Last Name </label>
+        <input id="inputLastName" type="text" name="companyLastName" required>
+        <p></p>
+        <label for="companyEmail">Enter E-Mail:</label>
+        <input id="inputEmail" type="email" name="companyEmail" required>
+        <p></p>
+        <label>Verify E-Mail:</label>
+        <input id="inputVerifyEmail" type="email" name="verifyEmail" required>
+      </div>
+      <br>
+      <div id="addressData" class='subsection incomplete'>
+        <h3>Address</h3>
+        <label for="companyAddressPrimary">Address </label>
+        <input id="inputAddress" type="text" name="companyAddressPrimary" placeholder=" 123 Street Rd." required>
+        <p></p>
+        <label for="companyAddressSecondary">Address </label>
+        <input type="text" name="companyAddressSecondary" placeholder=" Building C">
+        <p></p>
+        <label for="companyCity">City </label>
+        <input id="inputCity" type="text" name="companyCity" required>
+        <p></p>
+        <div>
+          <label for="companyState">State </label>
+          <select id="inputState" type="text" name="companyState" style='width:3em' required>
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AZ">AZ</option>
+            <option value="AR">AR</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DE">DE</option>
+            <option value="DC">DC</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="IA">IA</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="ME">ME</option>
+            <option value="MD">MD</option>
+            <option value="MA">MA</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MS">MS</option>
+            <option value="MO">MO</option>
+            <option value="MT">MT</option>
+            <option value="NE">NE</option>
+            <option value="NV">NV</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>
+            <option value="NY">NY</option>
+            <option value="NC">NC</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WV">WV</option>
+            <option value="WI">WI</option>
+            <option value="WY">WY</option>
+          </select>
+
+          <label for="companyZip">Zip </label>
+          <input id="inputZip" type="text" name="companyZip" style='width:5em' required>
+        </div>
+      </div>
+      <br>
+      <div id="loginData" class='subsection incomplete'>
+        <h3>Login Information</h3>
+        <label for="companyUserName">User Name </label>
+        <input id="inputUserName" type="text" name="companyUserName" placeholder=" 6 characters minimum" required>
+        <p></p>
+        <label for="companyPassword">Password </label>
+        <input id="inputPassword" type="password" name="companyPassword" placeholder=" (8 characters minimum)" required>
+        <p></p>
+        <label for="verifyPassword">Password </label>
+        <input id="inputVerifyPassword" type="password" name="verifyPassword" placeholder=" Verify password" required>
+      </div>
+      <p></p>
+      <input id="submitbtn" type="submit" disabled value="Submit"/>
+    </form>
+
+
+  <p>* You must create a company account to assign inspectors.</p>
+</div>
+  <script>
+    let companyDataValidatorList = [false, false, false];
+    let administratorDataValidatorList = [false, false, false, false];
+    let addressDataValidatorList = [false, false, false, false];
+    let loginDataValidatorList = [false, false, false];
+
+    function enabler () {
+      // called by each section completed check
+      // check the form validation lists, and enable submit button if all are complete, else disable.
+      if (companyDataValidatorList.includes(false) || administratorDataValidatorList.includes(false) || addressDataValidatorList.includes(false) || loginDataValidatorList.includes(false)) {
+        document.getElementById("submitbtn").disabled = true;
+      }
+      else {
+        // disable submit button if something that was complete has changed
+        document.getElementById("submitbtn").disabled = false;
+      }
+    }
+    function completer (sectionID, list) {
+      // called by each validator; changes class of section to reflect completed status
+      if (!list.includes(false)) {
+        document.getElementById(sectionID).classList.add('complete');
+        /*
+        console.log('updating ' + sectionID + ' to complete');
+        console.log(list);
+        console.log(" ");
+        */
+        enabler();
+      }
+      else {
+        document.getElementById(sectionID).classList.remove('complete');
+        /*
+        console.log('updating ' + sectionID + ' to incomplete');
+        console.log(list);
+        console.log(" ");
+        */
+      }
+
+    }
+    document.getElementById("inputCompanyName").addEventListener("input", function() {
+      // checks on input and changes the list value if the field is not empty
+      if (document.getElementById("inputCompanyName").value != null) {
+        companyDataValidatorList[0] = true;
+      }
+      else {
+        companyDataValidatorList[0] = false;
+      }
+      completer("companyData", companyDataValidatorList);
+    });
+    document.getElementById("inputAreaCode").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the right number of digits
+      if (document.getElementById("inputAreaCode").value.length == 3 &&  Number(document.getElementById("inputAreaCode").value) != NaN) {
+        companyDataValidatorList[1] = true;
+      }
+      else {
+        companyDataValidatorList[1] = false;
+      }
+      completer("companyData", companyDataValidatorList);
+    });
+    document.getElementById("inputPhone").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputPhone").value.length == 7 && Number(document.getElementById("inputCompanyName").value) != NaN) {
+        companyDataValidatorList[2] = true;
+      }
+      else {
+        companyDataValidatorList[2] = false;
+      }
+      completer("companyData", companyDataValidatorList);
+    });
+
+    document.getElementById("inputFirstName").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputFirstName").value != null) {
+        administratorDataValidatorList[0] = true;
+      }
+      else {
+        administratorDataValidatorList[0] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+    document.getElementById("inputLastName").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputLastName").value != null) {
+        administratorDataValidatorList[1] = true;
+      }
+      else {
+        administratorDataValidatorList[1] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+    document.getElementById("inputEmail").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputEmail").value != null) {
+        administratorDataValidatorList[2] = true;
+      }
+      else {
+        administratorDataValidatorList[2] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+    document.getElementById("inputVerifyEmail").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputEmail").value.length > 0 && document.getElementById("inputEmail").value == document.getElementById("inputVerifyEmail").value) {
+        administratorDataValidatorList[3] = true;
+      }
+      else {
+        administratorDataValidatorList[3] = false;
+      }
+      completer("administratorData", administratorDataValidatorList);
+    });
+
+    document.getElementById("inputAddress").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputAddress").value != null) {
+        addressDataValidatorList[0] = true;
+      }
+      else {
+        addressDataValidatorList[0] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+    document.getElementById("inputCity").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputCity").value != null) {
+        addressDataValidatorList[1] = true;
+      }
+      else {
+        addressDataValidatorList[1] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+    document.getElementById("inputAddress").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputAddress").value != null) {
+        addressDataValidatorList[2] = true;
+      }
+      else {
+        addressDataValidatorList[2] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+    document.getElementById("inputZip").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputZip").value.length == 5 &&  Number(document.getElementById("inputZip").value) != NaN) {
+        addressDataValidatorList[3] = true;
+      }
+      else {
+        addressDataValidatorList[3] = false;
+      }
+      completer("addressData", addressDataValidatorList);
+    });
+
+    document.getElementById("inputUserName").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputUserName").value.length > 5 ) {
+        loginDataValidatorList[0] = true;
+      }
+      else {
+        loginDataValidatorList[0] = false;
+      }
+      completer("loginData", loginDataValidatorList);
+    });
+    document.getElementById("inputPassword").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputPassword").value.length > 8 ) {
+        loginDataValidatorList[1] = true;
+      }
+      else {
+        loginDataValidatorList[1] = false;
+      }
+      completer("loginData", loginDataValidatorList);
+    });
+    document.getElementById("inputVerifyPassword").addEventListener("input", function() {
+      // checks on input if the field is numeric and contains the correct number of digits
+      if (document.getElementById("inputVerifyPassword").value.length > 8 &&  document.getElementById("inputPassword").value == document.getElementById("inputVerifyPassword").value) {
+        loginDataValidatorList[2] = true;
+      }
+      else {
+        loginDataValidatorList[2] = false;
+      }
+      completer("loginData", loginDataValidatorList);
+    });
+  </script>
+</body>
+</html>
